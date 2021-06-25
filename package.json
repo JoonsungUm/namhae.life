@@ -6,7 +6,14 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@deck.gl/core": "^8.4.18",
+		"@deck.gl/layers": "^8.4.18",
+		"@deck.gl/react": "^8.4.18",
+		"@loaders.gl/core": "^2.3.13",
+		"@material-ui/core": "^4.11.4",
+		"@material-ui/icons": "^4.11.2",
 		"deck.gl": "^8.4.17",
+		"gl-matrix": "^3.3.0",
 		"next": "^11.0.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
@@ -15,6 +22,8 @@
 		"vercel": "^23.0.1"
 	},
 	"devDependencies": {
-		"@types/react": "^17.0.11"
+		"@types/react": "^17.0.11",
+		"eslint": "^7.29.0",
+		"eslint-config-next": "^11.0.1"
 	}
 }
