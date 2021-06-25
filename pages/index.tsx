@@ -1,10 +1,10 @@
-/// app.js
+// eslint-disable-next-line
 import React from 'react'
 import DeckGL from '@deck.gl/react'
-import {GeoJsonLayer} from '@deck.gl/layers'
-import {StaticMap} from 'react-map-gl'
+import { GeoJsonLayer } from '@deck.gl/layers'
+import { StaticMap } from 'react-map-gl'
 
-import { MAPBOX_TOKEN  } from '../config'
+import { MAPBOX_TOKEN } from '../config'
 import { entireBalaegil } from '../data/entire-balaegil'
 
 // Viewport settings
@@ -37,7 +37,7 @@ const IndexPage = () => {
       initialViewState={INITIAL_VIEW_STATE}
       controller={true}
       layers={[layer]}
-      getTooltip={({object}) => object && (object.properties.name || object.properties.station)}
+      getTooltip={({ object }) => object && (object.properties.name || object.properties.station)}
     >
       <StaticMap mapboxApiAccessToken={MAPBOX_TOKEN} />
     </DeckGL>
