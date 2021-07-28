@@ -30,7 +30,7 @@ const balaegilLayer = new GeoJsonLayer({
   lineWidthScale: 20,
   lineWidthMinPixels: 2,
   getFillColor: [160, 160, 180, 200],
-  getLineColor: [0, 200, 0, 255],
+  getLineColor: [0, 200, 0, 180],
   getRadius: 100,
   getLineWidth: 1,
   getElevation: 30
@@ -45,7 +45,7 @@ const bus25Layer = new GeoJsonLayer({
   extruded: true,
   lineWidthScale: 20,
   lineWidthMinPixels: 2,
-  getLineColor: [0, 0, 255, 255],
+  getLineColor: [0, 0, 255, 180],
   getRadius: 100,
   getLineWidth: 1,
   getElevation: 30
@@ -60,7 +60,7 @@ const bus601Layer = new GeoJsonLayer({
   extruded: true,
   lineWidthScale: 20,
   lineWidthMinPixels: 2,
-  getLineColor: [255, 0, 0, 255],
+  getLineColor: [255, 0, 0, 180],
   getRadius: 100,
   getLineWidth: 1,
   getElevation: 30
