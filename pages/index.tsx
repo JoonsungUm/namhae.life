@@ -4,8 +4,12 @@ import DeckGL from '@deck.gl/react'
 import { GeoJsonLayer } from '@deck.gl/layers'
 import { StaticMap } from 'react-map-gl'
 
+import { Container } from '@material-ui/core'
+
 import { MAPBOX_TOKEN } from '../config'
 import { entireBalaegil } from '../data/entire-balaegil'
+import { bus25 } from '../data/bus25'
+import { bus601 } from '../data/bus601'
 
 // Viewport settings
 const INITIAL_VIEW_STATE = {
@@ -16,8 +20,8 @@ const INITIAL_VIEW_STATE = {
   bearing: 0
 }
 
-const layer = new GeoJsonLayer({
-  id: 'geojson-layer',
+const balaegilLayer = new GeoJsonLayer({
+  id: 'balaegil-layer',
   data: entireBalaegil,
   pickable: true,
   stroked: false,
@@ -26,6 +30,37 @@ const layer = new GeoJsonLayer({
   lineWidthScale: 20,
   lineWidthMinPixels: 2,
   getFillColor: [160, 160, 180, 200],
+  getLineColor: [0, 200, 0, 255],
+  getRadius: 100,
+  getLineWidth: 1,
+  getElevation: 30
+})
+
+const bus25Layer = new GeoJsonLayer({
+  id: 'bus25-layer',
+  data: bus25,
+  pickable: true,
+  stroked: false,
+  filled: true,
+  extruded: true,
+  lineWidthScale: 20,
+  lineWidthMinPixels: 2,
+  getLineColor: [0, 0, 255, 255],
+  getRadius: 100,
+  getLineWidth: 1,
+  getElevation: 30
+})
+
+const bus601Layer = new GeoJsonLayer({
+  id: 'bus601-layer',
+  data: bus601,
+  pickable: true,
+  stroked: false,
+  filled: true,
+  extruded: true,
+  lineWidthScale: 20,
+  lineWidthMinPixels: 2,
+  getLineColor: [255, 0, 0, 255],
   getRadius: 100,
   getLineWidth: 1,
   getElevation: 30
@@ -33,14 +68,16 @@ const layer = new GeoJsonLayer({
 
 const IndexPage = () => {
   return (
-    <DeckGL
-      initialViewState={INITIAL_VIEW_STATE}
-      controller={true}
-      layers={[layer]}
-      getTooltip={({ object }) => object && (object.properties.name || object.properties.station)}
-    >
-      <StaticMap mapboxApiAccessToken={MAPBOX_TOKEN} />
-    </DeckGL>
+    <Container>
+      <DeckGL
+        initialViewState={INITIAL_VIEW_STATE}
+        controller={true}
+        layers={[balaegilLayer, bus25Layer, bus601Layer]}
+        getTooltip={({ object }) => object && (object.properties.name || object.properties.station)}
+      >
+        <StaticMap mapboxApiAccessToken={MAPBOX_TOKEN} />
+      </DeckGL>
+    </Container>
   )
 }
 
